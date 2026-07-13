@@ -39,3 +39,6 @@ next-env.d.ts
 
 # Materiais internos (não versionar / não publicar)
 /Documentos_briefing/
+
+# Fotos originais (fonte) — o site serve os WebP em /public/img/catalogo
+/fotos_produtos/

@@ -4,14 +4,14 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Rodape from "@/components/Rodape";
 import Reveal from "@/components/Reveal";
-import { familias, produtos } from "@/lib/catalog";
+import { familias, catalogo } from "@/lib/catalog";
 import { whatsappLink } from "@/lib/site";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Catálogo · Exaustoor | Peças de exaustão em alumínio",
   description:
-    "Catálogo completo de peças de ventilação e exaustão em alumínio: terminais, chapéus, grelhas, difusores, dutos, portas de abrigo e exaustores. Guarulhos/SP.",
+    "Catálogo completo de peças de ventilação e exaustão em alumínio: chapéu chinês, terminal TEE, grelhas de deflexão e ventilação, difusor, dutos flexíveis, portas de abrigo, kit hidráulico e exaustor. Guarulhos/SP.",
 };
 
 export default function CatalogoPage() {
@@ -20,7 +20,7 @@ export default function CatalogoPage() {
       <Header />
       <main className="bg-aluminio-luz">
         {/* Cabeçalho da página */}
-        <header className="bg-grafite pb-16 pt-32 text-aluminio-luz md:pb-24 md:pt-40">
+        <header className="bg-grafite pb-16 pt-32 text-aluminio-luz md:pb-20 md:pt-40">
           <div className="shell">
             <Link
               href="/"
@@ -32,78 +32,128 @@ export default function CatalogoPage() {
               O catálogo inteiro.
             </h1>
             <p className="mt-6 max-w-xl font-sans text-base text-aluminio md:text-lg">
-              Cada peça sai da fábrica em Guarulhos. O que não está aqui, a gente
-              desenha e fabrica sob medida.
+              {catalogo.length} peças que saem da fábrica em Guarulhos. O que não
+              está aqui, a gente desenha e fabrica sob medida.
             </p>
+
+            {/* índice por família */}
+            <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Famílias">
+              {familias.map((f) => (
+                <a
+                  key={f.id}
+                  href={`#${f.id}`}
+                  className="mono-label text-2xs text-aluminio/70 transition-colors hover:text-sinal"
+                >
+                  {f.nome}
+                </a>
+              ))}
+            </nav>
           </div>
         </header>
 
-        {/* Grade de produtos */}
-        <section className="section-pad">
-          <div className="shell">
-            <div className="grid gap-px border-l border-t tech-line sm:grid-cols-2 lg:grid-cols-3">
-              {produtos.map((p, i) => (
-                <Reveal
-                  key={p.nome}
-                  as="article"
-                  delay={(i % 3) * 60}
-                  className="group border-b border-r tech-line bg-branco"
-                >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-aluminio-luz">
-                    <Image
-                      src={asset(p.img)}
-                      alt={p.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 ease-steel group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="mono-label text-2xs text-tinta/40">{p.familia}</p>
-                    <h2 className="mt-2 font-display text-lg font-bold text-tinta">
-                      {p.nome}
+        {/* Famílias com produtos */}
+        {familias.map((fam) => {
+          const itens = catalogo.filter((p) => p.familia === fam.nome);
+          if (!itens.length) return null;
+          return (
+            <section
+              key={fam.id}
+              id={fam.id}
+              className="scroll-mt-20 border-t tech-line py-16 md:py-24"
+            >
+              <div className="shell">
+                <Reveal className="flex items-baseline gap-4">
+                  <span className="mono-label text-sm text-sinal">F{fam.numero}</span>
+                  <div>
+                    <h2 className="font-display text-2xl font-extrabold text-tinta md:text-3xl">
+                      {fam.nome}
                     </h2>
+                    <p className="mt-2 max-w-2xl font-sans text-base text-tinta/60">
+                      {fam.descricao}
+                    </p>
                   </div>
                 </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Famílias — resumo textual */}
-        <section className="section-pad bg-branco">
-          <div className="shell">
-            <h2 className="font-display text-2xl font-extrabold text-tinta md:text-3xl">
-              As 5 famílias de peça
-            </h2>
-            <div className="mt-12 grid gap-px border-t tech-line md:grid-cols-2">
-              {familias.map((f) => (
-                <Reveal key={f.id} className="border-t tech-line py-8 md:pr-10">
-                  <div className="flex items-baseline gap-4">
-                    <span className="mono-label text-2xs text-sinal">F{f.numero}</span>
-                    <h3 className="font-display text-lg font-bold text-tinta">
-                      {f.nome}
-                    </h3>
-                  </div>
-                  <p className="mt-3 max-w-xl font-sans text-base leading-relaxed text-tinta/70">
-                    {f.descricao}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-x-2 gap-y-2">
-                    {f.pecas.map((peca) => (
-                      <li
-                        key={peca}
-                        className="border tech-line px-3 py-1.5 font-sans text-xs text-tinta/70"
-                      >
-                        {peca}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mono-label mt-5 text-2xs text-tinta/40">{f.spec}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+                <div className="mt-10 grid gap-6 lg:grid-cols-2">
+                  {itens.map((p, i) => (
+                    <Reveal
+                      as="article"
+                      key={p.slug}
+                      delay={(i % 2) * 80}
+                      className="group flex flex-col border tech-line bg-branco"
+                    >
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-aluminio-luz">
+                        <Image
+                          src={asset(p.img)}
+                          alt={p.nome}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-700 ease-steel group-hover:scale-[1.03]"
+                        />
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6">
+                        <h3 className="font-display text-lg font-bold text-tinta">
+                          {p.nome}
+                        </h3>
+
+                        <div className="mt-3 space-y-3 font-sans text-base leading-relaxed text-tinta/75">
+                          {p.descricao.map((d, idx) => (
+                            <p key={idx}>{d}</p>
+                          ))}
+                        </div>
+
+                        {p.bullets && (
+                          <ul className="mt-4 space-y-2">
+                            {p.bullets.map((b) => (
+                              <li
+                                key={b}
+                                className="flex gap-3 font-sans text-sm text-tinta/70"
+                              >
+                                <span
+                                  aria-hidden
+                                  className="mt-2 h-px w-3 shrink-0 bg-sinal"
+                                />
+                                {b}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {p.dados && (
+                          <dl className="mt-5 space-y-1.5 border-t tech-line pt-4">
+                            {p.dados.map((d) => (
+                              <div
+                                key={d.k}
+                                className="flex items-baseline justify-between gap-4"
+                              >
+                                <dt className="mono-label text-2xs text-tinta/45">
+                                  {d.k}
+                                </dt>
+                                <dd className="mono-label text-2xs text-tinta">
+                                  {d.v}
+                                </dd>
+                              </div>
+                            ))}
+                          </dl>
+                        )}
+
+                        <a
+                          href={whatsappLink({ tipo: p.nome })}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-6 inline-flex items-center gap-2 self-start font-sans text-base font-medium text-sinal transition-transform duration-300 ease-steel hover:translate-x-1"
+                        >
+                          Pedir orçamento →
+                        </a>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        })}
 
         {/* CTA final */}
         <section className="bg-grafite py-20 text-aluminio-luz">
