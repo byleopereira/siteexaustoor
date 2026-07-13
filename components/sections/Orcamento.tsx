@@ -135,7 +135,7 @@ export default function Orcamento() {
                     : "sr-only"
               }`}
             >
-              {status === "sucesso" && "Pronto — abrimos o WhatsApp pra você."}
+              {status === "sucesso" && "Pronto, abrimos o WhatsApp pra você."}
               {status === "erro" &&
                 "Faltou o WhatsApp. Sem ele não conseguimos te responder."}
             </p>

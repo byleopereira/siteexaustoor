@@ -5,7 +5,7 @@ import { whatsappLink } from "@/lib/site";
 const BULLETS = [
   "Alumínio, aço galvanizado, aço inox e PVC",
   "Terminais, joelhos, reduções, chapas de fechamento, suportes",
-  "Desenho técnico ou medida no papel — os dois servem",
+  "Desenho técnico ou medida no papel, os dois servem",
   "Preço e prazo diferenciados para CNPJ e pedidos recorrentes",
 ];
 
@@ -28,7 +28,7 @@ export default function SobMedida() {
             </p>
             <p>
               A gente tem a máquina e a mão de obra aqui dentro. Você manda o
-              desenho ou a medida — e a peça sai em dias, não em semanas.
+              desenho ou a medida, e a peça sai em dias, não em semanas.
             </p>
           </div>
 

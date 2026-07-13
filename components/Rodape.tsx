@@ -27,7 +27,7 @@ export default function Rodape() {
           <address className="mt-8 not-italic font-sans text-base leading-relaxed text-aluminio">
             {site.endereco.rua}
             <br />
-            {site.endereco.cidade} — {site.endereco.cep}
+            {site.endereco.cidade}, {site.endereco.cep}
             <br />
             <a
               href={`tel:+${site.telefoneDigits}`}

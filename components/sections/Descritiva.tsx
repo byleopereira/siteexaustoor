@@ -24,8 +24,8 @@ export default function Descritiva() {
           <Reveal className="md:col-span-5" delay={160}>
             <p className="font-sans text-base leading-relaxed text-tinta/80 md:text-lg">
               A diferença é simples: quando o projeto pede uma peça que o mercado
-              não estoca — diâmetro fora do padrão, ângulo estranho, chapa mais
-              grossa — a gente não pede pra você mudar o projeto.{" "}
+              não estoca (diâmetro fora do padrão, ângulo estranho, chapa mais
+              grossa), a gente não pede pra você mudar o projeto.{" "}
               <span className="text-tinta">A gente fabrica a peça.</span>
             </p>
             <a

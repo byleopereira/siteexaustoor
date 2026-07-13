@@ -62,7 +62,7 @@ export const familias: Familia[] = [
     numero: "04",
     nome: "Portas, guarnições e carenagens",
     descricao:
-      "Acabamento e acesso técnico. Abrigo de hidrante, quadro de telefonia, kit hidráulico — fechado com peça de alumínio, não com gambiarra.",
+      "Acabamento e acesso técnico. Abrigo de hidrante, quadro de telefonia, kit hidráulico, fechado com peça de alumínio, não com gambiarra.",
     pecas: [
       "Porta de abrigo",
       "Porta de abrigo com vidro para hidrante",

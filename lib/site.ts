@@ -6,7 +6,7 @@ export const site = {
   telefone: "11 4372-9891",
   telefoneDigits: "551143729891",
   endereco: {
-    rua: "Rua Amador Bueno, 212 — Jardim Munhoz",
+    rua: "Rua Amador Bueno, 212, Jardim Munhoz",
     cidade: "Guarulhos/SP",
     cep: "CEP 07042-230",
   },

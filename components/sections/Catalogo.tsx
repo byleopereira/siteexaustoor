@@ -55,18 +55,44 @@ export default function Catalogo() {
             </Reveal>
           ))}
 
-          {/* Card de fechamento: leva ao catálogo completo */}
+          {/* Card de fechamento: parede de peças + CTA para o catálogo completo */}
           <Reveal
             as="article"
             delay={160}
-            className="flex flex-col justify-between border-b border-r tech-line bg-grafite p-6 text-aluminio-luz"
+            className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden border-b border-r tech-line bg-grafite p-6 text-aluminio-luz"
           >
-            <p className="font-display text-lg font-bold leading-tight">
-              Mais de 20 peças em catálogo — e as que ainda não existem.
+            {/* montagem de peças ao fundo */}
+            <div aria-hidden className="absolute inset-0 grid grid-cols-2 grid-rows-3">
+              {[
+                "chapeu-chines",
+                "terminal-tee",
+                "grelha-deflexao",
+                "difusor",
+                "duto-flexivel",
+                "exaustor-banheiro",
+              ].map((p) => (
+                <div key={p} className="relative overflow-hidden">
+                  <Image
+                    src={`/img/produtos/${p}.webp`}
+                    alt=""
+                    fill
+                    sizes="200px"
+                    className="object-cover transition-transform duration-700 ease-steel group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+            {/* véu escuro para legibilidade do texto */}
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(16,19,21,0.9)_0%,rgba(16,19,21,0.55)_45%,rgba(16,19,21,0.95)_100%)]"
+            />
+            <p className="relative font-display text-lg font-bold leading-tight">
+              Mais de 20 peças em catálogo, e as que ainda não existem.
             </p>
             <Link
               href="/catalogo"
-              className="mt-8 inline-flex items-center gap-2 font-sans text-base font-medium text-sinal transition-transform duration-300 ease-steel hover:translate-x-1"
+              className="relative mt-8 inline-flex items-center gap-2 font-sans text-base font-medium text-sinal transition-transform duration-300 ease-steel hover:translate-x-1"
             >
               Ver catálogo completo →
             </Link>

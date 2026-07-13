@@ -18,7 +18,7 @@ export default function Fatos() {
               delay={i * 80}
               className="border-t tech-line pt-6 sm:border-t-0 lg:pr-8"
             >
-              <p className="font-display text-xl font-bold leading-tight text-tinta md:text-2xl">
+              <p className="font-display text-xl font-bold leading-[1.1] text-tinta md:text-2xl sm:min-h-[2.5em]">
                 {f.dado}
               </p>
               <p className="mono-label mt-3 text-2xs text-tinta/50">{f.rotulo}</p>

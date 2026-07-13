@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Exaustoor — Fabricação de peças de exaustão em alumínio | Guarulhos-SP",
+  title: "Exaustoor · Fabricação de peças de exaustão em alumínio | Guarulhos-SP",
   description:
     "Fábrica de peças de ventilação e exaustão em alumínio: chapéu chinês, terminal TEE, grelhas de pressurização, dutos e peças sob encomenda. Guarulhos/SP.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "duto flexível alumínio",
   ],
   openGraph: {
-    title: "Exaustoor — Fabricação de peças de exaustão em alumínio",
+    title: "Exaustoor · Fabricação de peças de exaustão em alumínio",
     description:
       "Peças de ventilação e exaustão em alumínio. Fábrica própria em Guarulhos, do catálogo à peça sob medida.",
     locale: "pt_BR",

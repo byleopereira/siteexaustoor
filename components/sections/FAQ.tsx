@@ -11,7 +11,7 @@ const PERGUNTAS = [
   },
   {
     q: "Qual o prazo de uma peça especial?",
-    a: "Depende da complexidade, mas trabalhamos em dias — não em semanas. O prazo exato vai junto com o orçamento.",
+    a: "Depende da complexidade, mas trabalhamos em dias, não em semanas. O prazo exato vai junto com o orçamento.",
   },
   {
     q: "Vocês instalam?",

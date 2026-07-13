@@ -34,7 +34,6 @@ export default function Hero() {
   const vignetteRef = useRef<HTMLDivElement>(null);
   const flashRef = useRef<HTMLDivElement>(null);
   const exitLightRef = useRef<HTMLDivElement>(null);
-  const exitLineRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLDivElement>(null);
   const scrollHintRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -78,7 +77,6 @@ export default function Hero() {
         autoAlpha: 0,
       });
       setSafe(eixoRef.current, { autoAlpha: 0, scale: 0.3, z: -200 });
-      setSafe(exitLineRef.current, { autoAlpha: 0, y: 30 });
       setSafe(annotRefs.current.filter(Boolean), { autoAlpha: 0, y: 14 });
 
       const tl = gsap.timeline({
@@ -167,9 +165,6 @@ export default function Hero() {
       add(flashRef.current, { autoAlpha: 0.9, duration: 0.02 }, 0.8);
       add(exitLightRef.current, { autoAlpha: 1, duration: 0.08 }, 0.8);
       add(flashRef.current, { autoAlpha: 0, duration: 0.05 }, 0.82);
-
-      // ---- Do outro lado ----
-      add(exitLineRef.current, { autoAlpha: 1, y: 0, duration: 0.1 }, 0.88);
     }, section);
 
     return () => ctx.revert();
@@ -256,7 +251,7 @@ export default function Hero() {
       ref={sectionRef}
       style={{ height: trackHeight }}
       className="relative bg-grafite"
-      aria-label="Exaustoor — fabricação de peças de exaustão em alumínio"
+      aria-label="Exaustoor, fabricação de peças de exaustão em alumínio"
     >
       <div
         ref={stageRef}
@@ -329,8 +324,9 @@ export default function Hero() {
           className="pointer-events-none absolute inset-0 h-full w-full"
         />
 
-        {/* scrim inferior — garante legibilidade da headline no mobile */}
+        {/* scrim de legibilidade da headline: base no mobile, canto inferior-esquerdo no desktop */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-grafite via-grafite/70 to-transparent md:hidden" />
+        <div className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(115%_95%_at_8%_88%,rgba(16,19,21,0.94)_0%,rgba(16,19,21,0.6)_32%,rgba(16,19,21,0)_58%)] md:block" />
 
         {/* camada 7 — headline + CTA */}
         <div className="pointer-events-none absolute inset-0">
@@ -339,12 +335,12 @@ export default function Hero() {
               <p className="mono-label mb-5 text-2xs text-aluminio/80">
                 Fábrica em Guarulhos · SP
               </p>
-              <h1 className="font-display text-[13vw] font-extrabold leading-[0.98] text-aluminio-luz sm:text-3xl md:text-3xl">
+              <h1 className="font-display text-[13vw] font-extrabold leading-[0.98] text-aluminio-luz [text-shadow:0_2px_28px_rgba(16,19,21,0.65)] sm:text-3xl md:text-3xl">
                 O ar precisa de uma saída.
                 <br />
                 <span className="text-branco">A gente fabrica ela.</span>
               </h1>
-              <p className="mt-6 max-w-xl font-sans text-base text-aluminio md:text-lg">
+              <p className="mt-6 max-w-xl font-sans text-base text-aluminio [text-shadow:0_1px_16px_rgba(16,19,21,0.7)] md:text-lg">
                 Peças de ventilação e exaustão em alumínio. Fábrica própria em
                 Guarulhos, desde peça de catálogo até a que ninguém tem.
               </p>
@@ -409,20 +405,11 @@ export default function Hero() {
           ref={flashRef}
           className="pointer-events-none absolute inset-0 bg-branco opacity-0"
         />
-        {/* cross-fade para o claro (outro lado) */}
+        {/* cross-fade para o claro (a saída do túnel) — o texto vive na seção seguinte */}
         <div
           ref={exitLightRef}
           className="pointer-events-none absolute inset-0 bg-aluminio-luz opacity-0"
-        >
-          <div className="shell flex h-full items-center">
-            <div ref={exitLineRef} className="max-w-2xl opacity-0">
-              <p className="mono-label mb-4 text-2xs text-tinta/50">Saída do túnel</p>
-              <p className="font-display text-xl font-bold leading-tight text-tinta md:text-2xl">
-                Você acabou de atravessar uma peça nossa.
-              </p>
-            </div>
-          </div>
-        </div>
+        />
       </div>
     </section>
   );

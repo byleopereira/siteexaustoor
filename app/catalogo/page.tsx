@@ -8,7 +8,7 @@ import { familias, produtos } from "@/lib/catalog";
 import { whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Catálogo — Exaustoor | Peças de exaustão em alumínio",
+  title: "Catálogo · Exaustoor | Peças de exaustão em alumínio",
   description:
     "Catálogo completo de peças de ventilação e exaustão em alumínio: terminais, chapéus, grelhas, difusores, dutos, portas de abrigo e exaustores. Guarulhos/SP.",
 };
