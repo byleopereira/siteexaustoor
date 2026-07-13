@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { whatsappLink } from "@/lib/site";
+import { asset } from "@/lib/asset";
 
 export default function Normas() {
   return (
@@ -50,7 +51,7 @@ export default function Normas() {
         <Reveal className="lg:col-span-5" delay={120}>
           <figure className="relative aspect-[4/3] w-full overflow-hidden border tech-line bg-aluminio-luz">
             <Image
-              src="/img/produtos/grelha-deflexao.webp"
+              src={asset("/img/produtos/grelha-deflexao.webp")}
               alt="Grelha de deflexão de duplo comando usada em pressurização de escadas"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"

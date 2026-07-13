@@ -5,6 +5,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { whatsappLink } from "@/lib/site";
+import { asset } from "@/lib/asset";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -259,7 +260,7 @@ export default function Hero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={skyRef}
-          src="/img/hero/hero-fundo.webp"
+          src={asset("/img/hero/hero-fundo.webp")}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
@@ -271,7 +272,7 @@ export default function Hero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={telhadoRef}
-          src="/img/hero/hero-telhado.webp"
+          src={asset("/img/hero/hero-telhado.webp")}
           alt=""
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-[55%] w-full object-cover [mask-image:linear-gradient(to_top,black_45%,transparent)]"
@@ -283,7 +284,7 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             ref={anelRef}
-            src="/img/hero/hero-anel.webp"
+            src={asset("/img/hero/hero-anel.webp")}
             alt=""
             aria-hidden="true"
             width={1400}
@@ -294,7 +295,7 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             ref={eixoRef}
-            src="/img/hero/hero-eixo.webp"
+            src={asset("/img/hero/hero-eixo.webp")}
             alt=""
             aria-hidden="true"
             width={1400}
@@ -305,7 +306,7 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             ref={gradeRef}
-            src="/img/hero/hero-grade.webp"
+            src={asset("/img/hero/hero-grade.webp")}
             alt="Exaustor eólico de telhado em alumínio, visto de frente"
             width={1600}
             height={1600}

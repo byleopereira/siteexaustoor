@@ -6,6 +6,7 @@ import Rodape from "@/components/Rodape";
 import Reveal from "@/components/Reveal";
 import { familias, produtos } from "@/lib/catalog";
 import { whatsappLink } from "@/lib/site";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Catálogo · Exaustoor | Peças de exaustão em alumínio",
@@ -50,7 +51,7 @@ export default function CatalogoPage() {
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-aluminio-luz">
                     <Image
-                      src={p.img}
+                      src={asset(p.img)}
                       alt={p.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

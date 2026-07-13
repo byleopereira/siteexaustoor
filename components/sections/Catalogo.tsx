@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { familias } from "@/lib/catalog";
+import { asset } from "@/lib/asset";
 
 export default function Catalogo() {
   return (
@@ -29,7 +30,7 @@ export default function Catalogo() {
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-aluminio-luz">
                 <Image
-                  src={f.img}
+                  src={asset(f.img)}
                   alt={f.imgAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -73,7 +74,7 @@ export default function Catalogo() {
               ].map((p) => (
                 <div key={p} className="relative overflow-hidden">
                   <Image
-                    src={`/img/produtos/${p}.webp`}
+                    src={asset(`/img/produtos/${p}.webp`)}
                     alt=""
                     fill
                     sizes="200px"

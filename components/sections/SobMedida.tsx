@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { whatsappLink } from "@/lib/site";
+import { asset } from "@/lib/asset";
 
 const BULLETS = [
   "Alumínio, aço galvanizado, aço inox e PVC",
@@ -54,7 +55,7 @@ export default function SobMedida() {
         <Reveal delay={120}>
           <figure className="relative aspect-[4/3] w-full overflow-hidden border border-aluminio/15">
             <Image
-              src="/img/ambiente/fabrica-dobra.webp"
+              src={asset("/img/ambiente/fabrica-dobra.webp")}
               alt="Chapa de alumínio sendo dobrada em uma dobradeira dentro da fábrica"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
