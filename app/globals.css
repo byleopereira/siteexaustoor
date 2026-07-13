@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Espelho dos tokens para uso em canvas/JS e valores não-Tailwind */
+  --grafite: #101315;
+  --grafite-2: #1b2024;
+  --aluminio: #c9cfd4;
+  --aluminio-luz: #eef1f3;
+  --branco: #ffffff;
+  --tinta: #0c0f11;
+  --sinal: #ff5a1f;
+  --azul-tecnico: #2e5c8a;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto; /* Lenis cuida do smooth scroll */
+  }
+
+  body {
+    background-color: var(--aluminio-luz);
+    color: var(--tinta);
+    font-family: var(--font-inter-tight), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--sinal);
+    color: var(--branco);
+  }
+
+  /* Foco de teclado visível em toda a UI (checklist de qualidade) */
+  :focus-visible {
+    outline: 2px solid var(--sinal);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* Linha de 1px como desenho técnico */
+  .tech-line {
+    border-color: var(--aluminio);
+  }
+
+  /* Rótulo utilitário em mono (specs técnicas reais) */
+  .mono-label {
+    font-family: var(--font-plex-mono), ui-monospace, monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Botão primário (o único lugar com laranja, além do scroll e do ponto de entrada) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-sinal px-6 py-3.5 font-sans text-base font-medium text-branco transition-transform duration-300 ease-steel;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn border border-aluminio/60 px-6 py-3.5 font-sans text-base font-medium transition-colors duration-300 ease-steel;
+  }
+
+  /* Container padrão */
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 md:px-10;
+  }
+
+  /* Espaçamento de seção */
+  .section-pad {
+    @apply py-[72px] md:py-section;
+  }
+}
+
+/* Respeita quem pediu menos movimento: neutraliza transições/animações */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
