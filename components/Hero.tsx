@@ -296,7 +296,7 @@ export default function Hero() {
             aria-hidden="true"
             width={1400}
             height={1400}
-            className="absolute h-[50svh] max-h-[50svh] w-auto max-w-[80vw] opacity-70 md:h-[64svh] md:max-h-[64svh] [will-change:transform]"
+            className="absolute aspect-square w-[min(80vw,50svh)] opacity-70 md:w-[min(80vw,64svh)] [will-change:transform]"
           />
           {/* camada 5 — eixo + rolamento (interior) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -307,7 +307,7 @@ export default function Hero() {
             aria-hidden="true"
             width={1400}
             height={1400}
-            className="absolute h-[40svh] w-auto max-w-[70vw] opacity-0 [will-change:transform]"
+            className="absolute aspect-square w-[min(70vw,40svh)] opacity-0 [will-change:transform]"
           />
           {/* camada 3 — grade / turbina (elemento principal) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -318,7 +318,7 @@ export default function Hero() {
             width={1600}
             height={1600}
             fetchPriority="high"
-            className="absolute h-[56svh] max-h-[56svh] w-auto max-w-[92vw] drop-shadow-[0_0_60px_rgba(255,90,31,0.10)] md:h-[72svh] md:max-h-[72svh] [will-change:transform]"
+            className="absolute aspect-square w-[min(92vw,56svh)] drop-shadow-[0_0_60px_rgba(255,90,31,0.10)] md:w-[min(92vw,72svh)] [will-change:transform]"
           />
         </div>
 
