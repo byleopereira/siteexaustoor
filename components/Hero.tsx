@@ -103,9 +103,8 @@ export default function Hero() {
 
       // ---- Rotação acelerando (o giro que vira disco contínuo) ----
       add(gradeRef.current, { rotation: 2600, ease: "power2.in", duration: 0.72 }, 0);
-      if (!isMobile) {
-        add(anelRef.current, { rotation: -3200, ease: "power2.in", duration: 0.72 }, 0);
-      }
+      // O anel interno gira e sai também no mobile — senão ficava estático no fim da travessia.
+      add(anelRef.current, { rotation: -3200, ease: "power2.in", duration: 0.72 }, 0);
 
       // ---- Fundo: leve zoom + vinheta escurecendo ----
       add(skyRef.current, { scale: 1.18, duration: 0.7 }, 0.15);
@@ -130,13 +129,11 @@ export default function Hero() {
         { scale: 9, z: 520, autoAlpha: 0, duration: 0.3, ease: "power2.in" },
         0.4,
       );
-      if (!isMobile) {
-        add(
-          anelRef.current,
-          { scale: 13, z: 820, autoAlpha: 0, duration: 0.3, ease: "power2.in" },
-          0.42,
-        );
-      }
+      add(
+        anelRef.current,
+        { scale: 13, z: 820, autoAlpha: 0, duration: 0.3, ease: "power2.in" },
+        0.42,
+      );
 
       // ---- Interior: eixo + rolamento atravessam em Z ----
       if (!isMobile) {
